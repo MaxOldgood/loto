@@ -1,0 +1,27 @@
+@use '../../styles/mixins' as mixins;
+
+.field{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+    padding-bottom: 16px;
+
+    &__header{
+        display: flex;
+        align-items: end;
+        gap: 8px;
+        padding-inline: 5px;
+    }
+
+    &__number{
+        @include mixins.fluid-text(20, 14);
+        font-weight: 700;
+    }
+
+    &__body{
+        display: grid;
+        grid-template-columns: repeat(7, 7fr);
+        grid-auto-rows: minmax(40px, auto);
+    }
+}

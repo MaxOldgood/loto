@@ -1,0 +1,18 @@
+@use '../../app/styles/media' as media;
+
+:root {
+  --color-light: #ffffff;
+  --color-dark: #000000;
+  --color-gray:#DDDDDD;
+  --color-gray-dark:#5c5c5c;
+  --color-accent: #FFD205;
+  --color-accent-darken: #e4bb05;
+
+  --border-radius:5px;
+  --border-radius-small:3px;
+
+  --font-family-base: Roboto, sans-serif;
+  --container-padding-x: 12px;
+
+  --transition: all 0.2s ease;
+}

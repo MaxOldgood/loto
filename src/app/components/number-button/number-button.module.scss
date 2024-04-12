@@ -1,0 +1,32 @@
+@use '../../styles/media' as media;
+
+.number_button{
+    background-color: var(--color-light);
+    border: 1px solid var(--color-gray);
+    outline: none;
+    border-radius: var(--border-radius);
+    margin-top: -1px;
+    margin-left: -1px;
+    aspect-ratio: 1;
+    font-weight: 700;
+    transition: var(--transition);
+    outline: none;
+   
+    @include media.mobile-above{
+        @include media.hover{
+            background-color: var(--color-gray);
+        }
+    }
+
+    &__selected {
+        border-color: transparent;
+        background-color: var(--color-accent);
+        height: 85%;
+        place-self: center;
+        margin: 0;
+
+        @include media.hover{
+            background-color: var(--color-accent-darken)
+        }
+    }
+}

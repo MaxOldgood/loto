@@ -1,0 +1,97 @@
+@use '../../styles/media' as media;
+@use '../../styles/mixins' as mixins;
+
+
+.app{
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  padding-inline:clamp(12px, 4.5vw, 50px);
+  padding-block: clamp(17px, 5vw, 50px)
+}
+
+.body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 700px;
+  min-height: 360px;
+  background-color: var(--color-light);
+  border-radius: var(--border-radius-small);
+
+
+  padding-inline: 11px;
+  padding-block: 14px;
+
+  @include media.mobile-above{
+    padding: 30px;
+  }
+
+  &__header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 5px;
+    padding-bottom: 12px;
+
+  }
+
+  &__title{
+    @include mixins.fluid-text(22,16);
+    font-weight: 700;
+  }
+
+  &__icon_button{
+    border: none;
+    background-color: transparent;
+    transition: var(--transition);
+    
+
+    @include media.hover{
+      transform: scale(1.2);
+    }
+  }
+
+  &__icon{
+    width: clamp(20px, 5vw, 35px );
+    aspect-ratio: 1;
+  }
+
+  &__result{
+    width: 100%;
+    text-align: left;
+    padding-inline: 5px;
+    padding-bottom: 10px;
+    margin-bottom: auto;
+  }
+
+  &__result_button{
+    padding-block: 13px;
+    padding-inline: 21px;
+    min-width: 175px;
+    width: fit-content;
+    border-radius: 40px;
+    background-color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    font-weight: 700;
+    color: var(--color-dark);
+    transition: var(--transition);
+
+    @include media.hover{
+      background-color: var(--color-accent-darken);
+    }
+
+    &:disabled{
+      background-color: transparent;
+      border-color:var(--color-gray);
+      color: var(--color-gray-dark);
+
+      cursor: auto;
+    }
+  }
+}
+
+

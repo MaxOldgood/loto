@@ -1,0 +1,5 @@
+@use './media' as media;
+
+@mixin fluid-text ($max: 40, $min: 16) {
+	font-size: clamp(#{$min}px, #{calc($max / 700 * 100)}vw, #{$max}px)
+}
