@@ -1,6 +1,5 @@
-  <a href='https://maxoldgood.github.io/loto/' targer='blank'>
-  <img src="https://i.ibb.co/Yp6nn3h/localhost-5173-loto-i-Phone-SE.jpg" width="800"/>
-  </a>
+
+<a href="https://maxoldgood.github.io/loto/"><img src="https://i.ibb.co/Rz1rr9c/localhost-5173-loto-i-Phone-SE.jpg" alt="loto game" border="0" width='800'></a>
 
 # Лото: 8 из 19
 Небольшая мини-игра.
