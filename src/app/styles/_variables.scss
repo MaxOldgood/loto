@@ -33,17 +33,18 @@
   --color-accent-darken: #e4bb05;
   --color-win:#66c21a;
   --color-win-darken:#519b14;
-  --color-lose: #66c21a3f;
+  --color-lose: #c21a1a3f;
   --color-lose-darken: #66c21a6e;
 }
 
 [data-theme ='dark']{
+  --color-gray:#2c2c2c;
   --color-light: #ffffff1f;
   --color-dark: #ffffff;
   --color-accent: #e49c00;
   --color-accent-darken: #e49c00d0;
-  --color-lose: #92ff3831;
-  --color-lose-darken: #66c21a6e;
+  --color-lose: #c21a1a3f;
+  --color-lose-darken: #c21a1a7c;
 
   --color-gray: #ffffff1e;
   --background-gradient: linear-gradient(to bottom, #09111b 0%, #011b31 100%) fixed;
