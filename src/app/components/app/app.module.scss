@@ -4,10 +4,11 @@
 
 .app{
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   width: 100vw;
   padding-inline:clamp(12px, 4.5vw, 50px);
-  padding-block: clamp(17px, 5vw, 50px)
 }
 
 .body{
@@ -19,7 +20,7 @@
   max-width: 700px;
 
   background-color: var(--color-light);
-  border-radius: var(--border-radius-small);
+  border-radius: clamp(3px, 2.5vw, 20px);
 
 
   padding-inline: 11px;
@@ -29,6 +30,7 @@
   @include media.mobile-above{
     padding: 30px;
   }
+
 
   &__header{
     width: 100%;
@@ -49,6 +51,9 @@
     border: none;
     background-color: transparent;
     transition: var(--transition);
+    background-color: var(--color-accent);
+    padding: 15px;
+    border-radius: 50%;
     
 
     @include media.hover{
@@ -58,14 +63,15 @@
 
   &__icon{
     width: clamp(20px, 5vw, 35px );
+    color: white;
     aspect-ratio: 1;
   }
 
   &__result{
+    margin: 0;
     width: 100%;
     text-align: center;
     padding-block: 20px;
-    margin-bottom: auto;
     font-weight: 700;
 
     @include mixins.fluid-text(25,18)
@@ -95,6 +101,13 @@
       cursor: auto;
     }
   }
+}
+
+.icon_button{
+  width: fit-content;
+  background-color: transparent;
+  border: none;
+  padding: 20px;
 }
 
 

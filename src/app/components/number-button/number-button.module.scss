@@ -1,10 +1,11 @@
 @use '../../styles/media' as media;
 
 .number_button{
+    color: var(--color-dark);
     background-color: var(--color-light);
     border: 1px solid var(--color-gray);
     outline: none;
-    border-radius: var(--border-radius);
+    border-radius: clamp(5px, 1.8vw, 15px);
     
     margin-top: -1px;
     margin-left: -1px;
@@ -26,7 +27,7 @@
         width: 85%;
         place-self: center;
         margin: 0;
-        color: black;
+
 
         @include media.hover{
             background-color: var(--color-accent-darken)

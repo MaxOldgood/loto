@@ -1,15 +1,24 @@
 import { useDispatch, useSelector } from 'react-redux'
 import wand from '../../assets/magic-wand.svg'
+import lightTheme from '../../assets/light-theme.svg'
+import darkTheme from '../../assets/dark-theme.svg'
+
 import { Field } from '../field/field'
 import { resetGame, selectFirstFieldNumbers, selectRandomNumbers, selectSecondFieldNumbers } from '../../game-slice'
 import { createNumbersArray } from '../../utils/createNumbersArray'
 import { shuffleArray } from '../../utils/shuffleArray'
 import { didUserWin } from '../../utils/didUserWin'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import styles from './app.module.scss'
 
 function App() {
+  const [theme, setTheme] = useState('light')
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+  }, [theme])
+
   const [result, setResult] = useState(null)
   const [winNumbers, setWinNumbers] = useState({})
   const selectedFirstFieldNumbers = useSelector(selectFirstFieldNumbers)
@@ -44,15 +53,20 @@ function App() {
     )
   }
 
-  console.log
-
   function handlePlayAgainButtonClick() {
     setResult(null)
     dispatch(resetGame())
   }
 
+  function handleThemeChange() {
+    theme === 'light' ? setTheme('dark') : setTheme('light')
+  }
+
   return (
     <div className={styles.app}>
+      <button className={styles.icon_button} onClick={handleThemeChange}>
+        <img className={styles.body__icon} src={theme === 'light' ? lightTheme : darkTheme} width={20} />
+      </button>
       <div className={`${styles.body} `}>
         <div className={styles.body__header}>
           <h2 className={styles.body__title}>Билет 1</h2>
