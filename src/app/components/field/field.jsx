@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { NumberButton } from '../number-button/number-button'
-import { toggleFirstFieldNumber, toggleSecondFieldNumber } from '../../game-slice'
+import { toggleNumber } from '../../game-slice'
 
 import styles from './field.module.scss'
 
@@ -17,9 +17,7 @@ export function Field(props) {
   }
 
   function handleButtonClick(e) {
-    fieldNumber === 1
-      ? dispatch(toggleFirstFieldNumber(Number(e.target.value)))
-      : dispatch(toggleSecondFieldNumber(Number(e.target.value)))
+    dispatch(toggleNumber({ number: Number(e.target.value), field: fieldNumber }))
   }
 
   return (

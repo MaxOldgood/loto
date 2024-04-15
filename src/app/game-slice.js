@@ -9,15 +9,11 @@ const gameSlice = createSlice({
   name: 'game',
   initialState,
   reducers: {
-    toggleFirstFieldNumber(state, action) {
-      state.firstField.find((number) => number === action.payload)
-        ? (state.firstField = state.firstField.filter((number) => number !== action.payload))
-        : state.firstField.push(action.payload)
-    },
-    toggleSecondFieldNumber(state, action) {
-      state.secondField.find((number) => number === action.payload)
-        ? (state.secondField = state.secondField.filter((number) => number !== action.payload))
-        : state.secondField.push(action.payload)
+    toggleNumber(state, action) {
+      const field = action.payload.field === 1 ? 'firstField' : 'secondField'
+      state[field].find((number) => number === action.payload.number)
+        ? (state[field] = state[field].filter((number) => number !== action.payload.number))
+        : state[field].push(action.payload.number)
     },
     resetGame() {
       return initialState
@@ -32,5 +28,5 @@ const gameSlice = createSlice({
 export const selectFirstFieldNumbers = (state) => state.game.firstField
 export const selectSecondFieldNumbers = (state) => state.game.secondField
 
-export const { toggleFirstFieldNumber, toggleSecondFieldNumber, resetGame, selectRandomNumbers } = gameSlice.actions
+export const { toggleNumber, resetGame, selectRandomNumbers } = gameSlice.actions
 export default gameSlice.reducer
