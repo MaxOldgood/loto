@@ -5,8 +5,10 @@
     border: 1px solid var(--color-gray);
     outline: none;
     border-radius: var(--border-radius);
+    
     margin-top: -1px;
     margin-left: -1px;
+    width: 100%;
     aspect-ratio: 1;
     font-weight: 700;
     transition: var(--transition);
@@ -21,12 +23,34 @@
     &__selected {
         border-color: transparent;
         background-color: var(--color-accent);
-        height: 85%;
+        width: 85%;
         place-self: center;
         margin: 0;
+        color: black;
 
         @include media.hover{
             background-color: var(--color-accent-darken)
         }
+
+        &_win{
+            background-color: var(--color-win);
+            @include media.hover{
+                background-color: var(--color-win-darken)
+            }
+        }
     }
+
+    &__lose{
+        border-color: transparent;
+        background-color:  var(--color-lose);
+        width: 85%;
+        place-self: center;
+        margin: 0;
+
+        @include media.hover{
+            background-color: var(--color-lose-darken)
+        }
+    }
+
+
 }
