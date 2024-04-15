@@ -5,7 +5,7 @@ import { toggleNumber } from '../../game-slice'
 import styles from './field.module.scss'
 
 export function Field(props) {
-  const { fieldNumber, label, numbers, selectedNumbers } = props
+  const { fieldNumber, label, numbers, selectedNumbers, winNumbers } = props
   const dispatch = useDispatch()
 
   function isNumberSelected(number) {
@@ -13,12 +13,18 @@ export function Field(props) {
   }
 
   function isButtonDisabled(number) {
-    return !isNumberSelected(number) && selectedNumbers?.length === (fieldNumber === 1 ? 8 : 1)
+    return (!isNumberSelected(number) && selectedNumbers?.length === (fieldNumber === 1 ? 8 : 1)) || winNumbers
+  }
+
+  function isWinNumber(number) {
+    return winNumbers?.find((winNumber) => winNumber === number)
   }
 
   function handleButtonClick(e) {
     dispatch(toggleNumber({ number: Number(e.target.value), field: fieldNumber }))
   }
+
+  console.log(winNumbers)
 
   return (
     <div className={styles.field}>
@@ -34,6 +40,7 @@ export function Field(props) {
               fieldNumber={fieldNumber}
               key={number}
               number={number}
+              isWinNumber={isWinNumber(number)}
               isSelected={isNumberSelected(number)}
               isDisabled={isButtonDisabled(number)}
             />

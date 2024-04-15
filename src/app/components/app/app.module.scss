@@ -17,13 +17,14 @@
   justify-content: space-between;
   width: 100%;
   max-width: 700px;
-  min-height: 360px;
+
   background-color: var(--color-light);
   border-radius: var(--border-radius-small);
 
 
   padding-inline: 11px;
   padding-block: 14px;
+  transition: all 0.25s ease;
 
   @include media.mobile-above{
     padding: 30px;
@@ -62,10 +63,12 @@
 
   &__result{
     width: 100%;
-    text-align: left;
-    padding-inline: 5px;
-    padding-bottom: 10px;
+    text-align: center;
+    padding-block: 20px;
     margin-bottom: auto;
+    font-weight: 700;
+
+    @include mixins.fluid-text(25,18)
   }
 
   &__result_button{

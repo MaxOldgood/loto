@@ -11,6 +11,7 @@ import styles from './app.module.scss'
 
 function App() {
   const [result, setResult] = useState(null)
+  const [winNumbers, setWinNumbers] = useState({})
   const selectedFirstFieldNumbers = useSelector(selectFirstFieldNumbers)
   const selectedSecondFieldNumbers = useSelector(selectSecondFieldNumbers)
   const dispatch = useDispatch()
@@ -30,12 +31,20 @@ function App() {
     const firstFieldWinValues = shuffleArray(firstFieldNumbers).slice(0, 8)
     const secondFieldWinValues = shuffleArray(secondFieldNumbers).slice(0, 1)
 
+    setWinNumbers({
+      ...winNumbers,
+      firstField: firstFieldWinValues,
+      secondField: secondFieldWinValues,
+    })
+
     setResult(
       didUserWin(firstFieldWinValues, secondFieldWinValues, selectedFirstFieldNumbers, selectedSecondFieldNumbers)
         ? 'Ого, вы выиграли! Поздравляем!'
         : 'Вы проиграли! :( Попробуйте еще раз!',
     )
   }
+
+  console.log
 
   function handlePlayAgainButtonClick() {
     setResult(null)
@@ -53,6 +62,22 @@ function App() {
             </button>
           )}
         </div>
+
+        <Field
+          winNumbers={result && winNumbers.firstField}
+          selectedNumbers={selectedFirstFieldNumbers}
+          fieldNumber={1}
+          label="Отметьте 8 чисел."
+          numbers={firstFieldNumbers}
+        />
+        <Field
+          winNumbers={result && winNumbers.secondField}
+          selectedNumbers={selectedSecondFieldNumbers}
+          fieldNumber={2}
+          label="Отметьте 1 число."
+          numbers={secondFieldNumbers}
+        />
+
         {result && (
           <>
             <p className={styles.body__result}>{result}</p>
@@ -61,28 +86,15 @@ function App() {
             </button>
           </>
         )}
+
         {!result && (
-          <>
-            <Field
-              selectedNumbers={selectedFirstFieldNumbers}
-              fieldNumber={1}
-              label="Отметьте 8 чисел."
-              numbers={firstFieldNumbers}
-            />
-            <Field
-              selectedNumbers={selectedSecondFieldNumbers}
-              fieldNumber={2}
-              label="Отметьте 1 число."
-              numbers={secondFieldNumbers}
-            />
-            <button
-              disabled={isResultButtonDisabled}
-              className={styles.body__result_button}
-              onClick={handleResultButtonClick}
-            >
-              Показать результат
-            </button>
-          </>
+          <button
+            disabled={isResultButtonDisabled}
+            className={styles.body__result_button}
+            onClick={handleResultButtonClick}
+          >
+            Показать результат
+          </button>
         )}
       </div>
     </div>
