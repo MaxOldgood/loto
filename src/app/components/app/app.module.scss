@@ -71,7 +71,7 @@
     margin: 0;
     width: 100%;
     text-align: center;
-    padding-block: 20px;
+    padding-block: 10px;
     font-weight: 700;
 
     @include mixins.fluid-text(25,18)
@@ -107,7 +107,7 @@
   width: fit-content;
   background-color: transparent;
   border: none;
-  padding: 20px;
+  padding: 10px;
 }
 
 
